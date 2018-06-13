@@ -15,7 +15,7 @@ int main()
 {
     constexpr int WORLD_LENGTH = 5;
     
-    cout << "Welcome to Bulls and Cows, a fun game." << endl;   
+    cout << "Welcome to Bulls and Cows, a fun game." << endl;
     cout << "Can you guess the " << WORLD_LENGTH;
     cout << " letter isogram i'm thinking of?" << endl;
 }
