@@ -1,46 +1,29 @@
-//
-//  main.cpp
-//  HelloWorld
-//
-//  Created by logh on 6/13/18.
-//  Copyright © 2018 logh. All rights reserved.
-//
-
 #include <iostream>
 
 using namespace std;
 
+// Func Proto
 void PrintIntro();
-string GetGuessAndPrintBack();
+void PlayGame();
+string GetGuess();
 
 int main()
 {
-    
     PrintIntro();
-    
-    // loop for the number of turns
-    constexpr int NUMBER_OF_TURNS = 5;
-    for (int count = 1; count <= NUMBER_OF_TURNS; count++)
-    {
-        GetGuessAndPrintBack();
-        cout << endl;
-    }
-    
-    cout << endl;
+    PlayGame();
+    // Yes, actually it's not necessary in 2018 compilers;
+    return 0;
 }
 
 // Get a Guess from the Player
-string GetGuessAndPrintBack()
+string GetGuess()
 {
     cout << "Enter your guess: ";
     string Guess = "";
     getline(cin, Guess);
-    
-    // Print the Guess back to Player
-    cout << "Your guess was: " << Guess << endl;
-    
     return Guess;
 }
+
 
 // Welcome
 void PrintIntro()
@@ -53,3 +36,13 @@ void PrintIntro()
     return;
 }
 
+void PlayGame()
+{
+    constexpr int NUMBER_OF_TURNS = 5;
+    for (int count = 1; count <= NUMBER_OF_TURNS; count++)
+    {
+        string Guess = GetGuess();
+        cout << "Your guess was: " << Guess << endl;
+        cout << endl;
+    }
+}
