@@ -3,15 +3,17 @@
 using namespace std;
 
 // Func Proto
-void PrintIntro();
+void GameIntro();
 void PlayGame();
 string GetGuess();
+bool PlayAgain();
 
 int main()
 {
-    PrintIntro();
+    
+    GameIntro();
     PlayGame();
-    // Yes, actually it's not necessary in 2018 compilers;
+    PlayAgain();
     return 0;
 }
 
@@ -26,7 +28,7 @@ string GetGuess()
 
 
 // Welcome
-void PrintIntro()
+void GameIntro()
 {
     constexpr int WORLD_LENGTH = 5;
     cout << "Welcome to Bulls and Cows, a fun game." << endl;
@@ -45,4 +47,18 @@ void PlayGame()
         cout << "Your guess was: " << Guess << endl;
         cout << endl;
     }
+}
+
+bool PlayAgain()
+{
+    cout << "Do you want to play again? Y or N?" << endl;
+    string Choice = "";
+    getline(cin, Choice);
+
+
+
+    cout << "Player choice: " << (Choice[0] == 'y');
+    cout << endl;
+
+    return (Choice[0] == 'y' || (Choice[0] == 'Y'));
 }
