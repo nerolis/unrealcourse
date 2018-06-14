@@ -10,10 +10,12 @@ bool PlayAgain();
 
 int main()
 {
-    
-    GameIntro();
-    PlayGame();
-    PlayAgain();
+    do {
+        GameIntro();
+        PlayGame();
+    }
+    while (PlayAgain());
+
     return 0;
 }
 
@@ -51,7 +53,7 @@ void PlayGame()
 
 bool PlayAgain()
 {
-    cout << "Do you want to play again? Y or N?" << endl;
+    cout << "Do you want to play again? Y/N?" << endl;
     string Choice = "";
     getline(cin, Choice);
 
@@ -59,6 +61,11 @@ bool PlayAgain()
 
     cout << "Player choice: " << (Choice[0] == 'y');
     cout << endl;
+
+    if (Choice[0] == 'y' || Choice[0] == 'Y')
+        cout << "Restarting the game..." << endl;
+    else
+        cout << "Player choiced finish the game" << endl;
 
     return (Choice[0] == 'y' || (Choice[0] == 'Y'));
 }
