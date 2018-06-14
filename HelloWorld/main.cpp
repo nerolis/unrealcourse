@@ -24,8 +24,11 @@ int main()
     // Player Guess
     cout << "Enter your guess: ";
     string Guess = "";
-    cin  >> Guess;
-    
+    getline(cin, Guess);
+    //Get a Guess from the Player
+    cout << "Enter your guess: ";
+    getline(cin, Guess);
+    // Repeat Guess to Player
     cout << "Your guess was: " << Guess << endl;
     
     cout << endl;
