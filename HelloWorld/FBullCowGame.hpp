@@ -1,4 +1,6 @@
 #include <string>
+using int32 = int;
+using FString = std::string;
 
 class FBullCowGame {
 public:
@@ -9,11 +11,11 @@ public:
     bool IsGameWon() const;
 
     void Reset();
-    bool CheckGuessValidity(std::string);
+    bool CheckGuessValidity(FString);
 
 private:
     // Init in constructor;
-    int MyCurrentTry;
-    int MyMaxTries;
+    int32 MyCurrentTry;
+    int32 MyMaxTries;
     bool IsIsogram();
 };
