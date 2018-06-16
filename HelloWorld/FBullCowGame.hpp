@@ -1,14 +1,15 @@
-//
-//  FBullCowGame.hpp
-//  HelloWorld
-//
-//  Created by logh on 6/15/18.
-//  Copyright © 2018 logh. All rights reserved.
-//
+#include <string>
 
-#ifndef FBullCowGame_hpp
-#define FBullCowGame_hpp
+class FBullCowGame {
+public:
+    void Reset();
+    int GetMaxTries();
+    int GetCurrentTry();
+    bool IsGameWon();
+    bool CheckGuessValidity(std::string);
 
-#include <stdio.h>
-
-#endif /* FBullCowGame_hpp */
+private:
+    int MyCurrentTry;
+    int MyMaxTries;
+    bool IsIsogram();
+};
