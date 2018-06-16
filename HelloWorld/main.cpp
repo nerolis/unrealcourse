@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include "FBullCowGame.hpp"
 
 // Func Proto
 void GameIntro();
@@ -41,6 +42,10 @@ void GameIntro()
 
 void PlayGame()
 {
+    FBullCowGame BCGame; // Instantiate a new gasme
+
+     
+
     constexpr int NUMBER_OF_TURNS = 5;
     for (int count = 1; count <= NUMBER_OF_TURNS; count++)
     {
