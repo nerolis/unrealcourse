@@ -1,17 +1,30 @@
 #include "FBullCowGame.hpp"
 using int32 = int;
 
-FBullCowGame::FBullCowGame() { Reset(); }
+FBullCowGame::FBullCowGame()
+{
+    Reset();
 
-int32 FBullCowGame::GetMaxTries() const { return MyMaxTries; }
-int32 FBullCowGame::GetCurrentTry() const { return MyCurrentTry; }
+}
+
+int32 FBullCowGame::GetMaxTries() const
+{
+    return MyMaxTries;
+
+}
+
+int32 FBullCowGame::GetCurrentTry() const
+{
+    return MyCurrentTry;
+
+}
 
 void FBullCowGame::Reset()
 {
     constexpr int32 MAX_TRIES = 8;
     MyMaxTries = MAX_TRIES;
 
-    const FString HIDDEN_WORD = "ant";
+    const FString HIDDEN_WORD = "toto";
     MyHiddenWord = HIDDEN_WORD;
 
     MyCurrentTry = 1;
@@ -23,7 +36,7 @@ bool FBullCowGame::IsGameWon() const
     return 0;
 }
 
-bool FBullCowGame::CheckGuessValidity(std::string)
+bool FBullCowGame::CheckGuessValidity(std::string) const
 {
     return 0;
 }
@@ -48,9 +61,13 @@ FBullCowCount FBullCowGame::SubmitGuess(FString Guess)
             }
         }
     }
-
     return BullCowCount;
 };
+
+int32 FBullCowGame::GetHiddenWordLength() const { 
+    return MyHiddenWord.length();
+} 
+
 
 
 

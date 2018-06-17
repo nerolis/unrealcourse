@@ -40,10 +40,9 @@ FText GetGuess()
 // Welcome
 void GameIntro()
 {
-    constexpr int32 WORLD_LENGTH = 5;
     std::cout << "Welcome to Bulls and Cows, a fun game." << std::endl;
-    std::cout << "Can you guess the " << WORLD_LENGTH;
-    std::cout << "letter isogram i'm thinking of?" << std::endl;
+    std::cout << "Can you guess the " << BCGame.GetHiddenWordLength();
+    std::cout << " letter isogram i'm thinking of?" << std::endl;
     std::cout << std::endl;
     return;
 }

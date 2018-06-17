@@ -14,10 +14,13 @@ public:
 
     int32 GetMaxTries() const;
     int32 GetCurrentTry() const;
+    int32 GetHiddenWordLength() const;
+
     bool IsGameWon() const;
+    bool CheckGuessValidity(FString) const;
 
     void Reset();
-    bool CheckGuessValidity(FString);
+
 
     FBullCowCount SubmitGuess(FString);
 
