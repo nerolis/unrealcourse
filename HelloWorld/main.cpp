@@ -8,6 +8,7 @@ using int32 = int;
 // Func Proto
 void GameIntro();
 void PlayGame();
+void GameSummery();
 FText GetValidGuess();
 bool PlayAgain();
 
@@ -46,6 +47,8 @@ void PlayGame()
         std::cout << "Bulls = " << BullCowCount.Bulls;
         std::cout << " Cows = " << BullCowCount.Cows << std::endl;
     }
+    GameSummery();
+    return;
 }
 
 FText GetValidGuess()
@@ -82,19 +85,19 @@ FText GetValidGuess()
 
 bool PlayAgain()
 {
-    std::cout << "Do you want to play again? Y/N?" << std::endl;
+    std::cout << "Do you want to play again with the same hidden word? Y/N?" << std::endl;
     FText Choice = "";
     getline(std:: cin, Choice);
-
-
-
-    std::cout << "Player choice: " << (Choice[0] == 'y');
     std::cout << std::endl;
-
-    if (Choice[0] == 'y' || Choice[0] == 'Y')
-        std::cout << "Restarting the game..." << std::endl;
-    else
-        std::cout << "Player choiced finish the game" << std::endl;
-
     return (Choice[0] == 'y' || (Choice[0] == 'Y'));
+}
+
+void GameSummery()
+{
+    if(BCGame.IsGameWon())
+    {
+        std::cout << "Well done – you win" << std::endl;
+    } else {
+        std::cout << "The game is over – you lose" << std::endl;
+    }
 }

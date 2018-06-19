@@ -30,8 +30,7 @@ public:
     EGuessStatus CheckGuessValidity(FString Guess) const;
 
     void Reset();
-
-
+    
     FBullCowCount SubmitValidGuess(FString);
 
 private:
