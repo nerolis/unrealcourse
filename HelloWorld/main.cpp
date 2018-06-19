@@ -39,8 +39,7 @@ void PlayGame()
 
     int32 MaxTries = BCGame.GetMaxTries();
 
-    for (int32 count = 1; count <= MaxTries; count++)
-    {
+    while(!BCGame.IsGameWon() && BCGame.GetCurrentTry() <= MaxTries) {
         FText Guess = GetValidGuess();
         FBullCowCount BullCowCount = BCGame.SubmitValidGuess(Guess);
 

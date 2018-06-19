@@ -19,6 +19,12 @@ int32 FBullCowGame::GetCurrentTry() const
 
 }
 
+bool FBullCowGame::IsGameWon() const
+{
+    return bGameIsWon;
+}
+
+
 void FBullCowGame::Reset()
 {
     constexpr int32 MAX_TRIES = 8;
@@ -26,19 +32,14 @@ void FBullCowGame::Reset()
 
     const FString HIDDEN_WORD = "toto";
     MyHiddenWord = HIDDEN_WORD;
-
+    bGameIsWon = false;
     MyCurrentTry = 1;
     return;
 }
 
-bool FBullCowGame::IsGameWon() const
-{
-    return 0;
-}
-
 EGuessStatus FBullCowGame::CheckGuessValidity(FString Guess) const
 {
-    if (Guess != MyHiddenWord)
+    if (false)
     {
         return EGuessStatus::Not_Isogram;
     }
@@ -74,6 +75,11 @@ FBullCowCount FBullCowGame::SubmitValidGuess(FString Guess)
                 }
             }
         }
+    }
+    if (BullCowCount.Bulls == WordLength) {
+        bGameIsWon = true;
+    } else {
+        bGameIsWon = false;
     }
     return BullCowCount;
 };
