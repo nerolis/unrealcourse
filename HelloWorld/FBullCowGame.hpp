@@ -32,7 +32,7 @@ public:
     void Reset();
 
 
-    FBullCowCount SubmitGuess(FString);
+    FBullCowCount SubmitValidGuess(FString);
 
 private:
     // Init in constructor;

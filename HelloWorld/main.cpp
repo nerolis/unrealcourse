@@ -42,7 +42,7 @@ void PlayGame()
     for (int32 count = 1; count <= MaxTries; count++)
     {
         FText Guess = GetValidGuess();
-        FBullCowCount BullCowCount = BCGame.SubmitGuess(Guess);
+        FBullCowCount BullCowCount = BCGame.SubmitValidGuess(Guess);
 
         std::cout << "Bulls = " << BullCowCount.Bulls;
         std::cout << " Cows = " << BullCowCount.Cows << std::endl;
@@ -52,10 +52,9 @@ void PlayGame()
 FText GetValidGuess()
 {
     EGuessStatus Status = EGuessStatus::Invalid_Status;
-
+    FText Guess = "";
     do {
         int32 CurrentTry = BCGame.GetCurrentTry();
-        FText Guess = "";
         getline(std::cin, Guess);
         std::cout << "Try " << CurrentTry << ". Enter your guess: ";
 
@@ -75,11 +74,11 @@ FText GetValidGuess()
                 break;
 
             default:
-                return Guess;
+                break;
         }
         std::cout << std::endl;
-    } while (Status == EGuessStatus:: OK); // Keep looping until we get a valid input;
-    return "test";
+    } while (Status != EGuessStatus:: OK); // Keep looping until we get a valid input;
+    return Guess;
 }
 
 bool PlayAgain()
