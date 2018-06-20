@@ -83,7 +83,7 @@ FText GetValidGuess()
     return Guess;
 }
 
-bool PlayAgain()
+bool PlayAgain() 
 {
     std::cout << "Do you want to play again with the same hidden word? Y/N?" << std::endl;
     FText Choice = "";

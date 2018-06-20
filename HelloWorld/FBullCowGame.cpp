@@ -1,29 +1,14 @@
 #include "FBullCowGame.hpp"
+#include <map>
+#define TMap std::map // Unreal standart
+
 using int32 = int;
 
-FBullCowGame::FBullCowGame()
-{
-    Reset();
-
-}
-
-int32 FBullCowGame::GetMaxTries() const
-{
-    return MyMaxTries;
-
-}
-
-int32 FBullCowGame::GetCurrentTry() const
-{
-    return MyCurrentTry;
-
-}
-
-bool FBullCowGame::IsGameWon() const
-{
-    return bGameIsWon;
-}
-
+int32 FBullCowGame::GetHiddenWordLength() const { return MyHiddenWord.length(); }
+int32 FBullCowGame::GetMaxTries() const { return MyMaxTries; }
+int32 FBullCowGame::GetCurrentTry() const { return MyCurrentTry; }
+FBullCowGame::FBullCowGame() { Reset(); }
+bool FBullCowGame::IsGameWon() const { return bGameIsWon; }
 
 void FBullCowGame::Reset()
 {
@@ -39,7 +24,7 @@ void FBullCowGame::Reset()
 
 EGuessStatus FBullCowGame::CheckGuessValidity(FString Guess) const
 {
-    if (false)
+    if (!isIsogram(Guess))
     {
         return EGuessStatus::Not_Isogram;
     }
@@ -84,9 +69,11 @@ FBullCowCount FBullCowGame::SubmitValidGuess(FString Guess)
     return BullCowCount;
 };
 
-int32 FBullCowGame::GetHiddenWordLength() const { 
-    return MyHiddenWord.length();
-} 
+bool FBullCowGame::isIsogram(FString Word) const
+{
+    return true;
+}
+
 
 
 

@@ -35,8 +35,10 @@ public:
 
 private:
     // Init in constructor;
+    bool isIsogram(FString) const;
+    bool bGameIsWon;
+
     int32 MyCurrentTry;
     int32 MyMaxTries;
     FString MyHiddenWord;
-    bool bGameIsWon;
 };
