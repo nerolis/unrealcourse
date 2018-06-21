@@ -27,9 +27,16 @@ int main()
 
 void GameIntro()
 {
-    std::cout << "Welcome to Bulls and Cows, a fun game." << std::endl;
+    std::cout << "Welcome to Bulls and Cows, a fun word game.\n";
+    std::cout << std::endl;
+    std::cout << "          }   {         ___ " << std::endl;
+    std::cout << "          (o o)        (o o) " << std::endl;
+    std::cout << "   /-------\\ /          \\ /-------\\ " << std::endl;
+    std::cout << "  / | BULL |O            O| COW  | \\ " << std::endl;
+    std::cout << " *  |-,--- |              |------|  * " << std::endl;
+    std::cout << "    ^      ^              ^      ^ " << std::endl;
     std::cout << "Can you guess the " << BCGame.GetHiddenWordLength();
-    std::cout << " letter isogram i'm thinking of?" << std::endl;
+    std::cout << " letter isogram I'm thinking of?\n";
     std::cout << std::endl;
     return;
 }
@@ -37,7 +44,6 @@ void GameIntro()
 void PlayGame()
 {
     BCGame.Reset();
-
     int32 MaxTries = BCGame.GetMaxTries();
 
     while(!BCGame.IsGameWon() && BCGame.GetCurrentTry() <= MaxTries) {
@@ -46,7 +52,9 @@ void PlayGame()
 
         std::cout << "Bulls = " << BullCowCount.Bulls;
         std::cout << " Cows = " << BullCowCount.Cows << std::endl;
+        std::cout << std::endl;
     }
+
     GameSummery();
     return;
 }
@@ -57,28 +65,27 @@ FText GetValidGuess()
     FText Guess = "";
     do {
         int32 CurrentTry = BCGame.GetCurrentTry();
+        std::cout << "Try " << CurrentTry << " of " << BCGame.GetMaxTries();
+        std::cout << ". Enter your guess: "  << std::endl;
         getline(std::cin, Guess);
-        std::cout << "Try " << CurrentTry << ". Enter your guess: ";
-
         Status = BCGame.CheckGuessValidity(Guess);
         switch (Status)
         {
             case EGuessStatus::Wrong_Length:
-                std::cout << "Please enter a " << BCGame.GetHiddenWordLength() << " letter word." << std::endl;
+                std::cout << "Please enter a " << BCGame.GetHiddenWordLength() << " letter word. \n\n";
                 break;
 
             case EGuessStatus::Not_Isogram:
-                std::cout << "Please enter a word without repeating letters" << std::endl;
+                std::cout << "Please enter a word without repeating letters \n\n";
                 break;
 
             case EGuessStatus::Not_Lowercase:
-                std::cout << "Please enter all lowercase letters" << std::endl;
+                std::cout << "Please enter all lowercase letters \n\n";
                 break;
 
             default:
                 break;
         }
-        std::cout << std::endl;
     } while (Status != EGuessStatus:: OK); // Keep looping until we get a valid input;
     return Guess;
 }
@@ -100,4 +107,5 @@ void GameSummery()
     } else {
         std::cout << "The game is over – you lose" << std::endl;
     }
+    std::cout << std::endl;
 }
