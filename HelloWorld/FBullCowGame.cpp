@@ -15,7 +15,7 @@ void FBullCowGame::Reset()
     constexpr int32 MAX_TRIES = 3;
     MyMaxTries = MAX_TRIES;
 
-    const FString HIDDEN_WORD = "toto";
+    const FString HIDDEN_WORD = "planet";
     MyHiddenWord = HIDDEN_WORD;
     bGameIsWon = false;
     MyCurrentTry = 1;
@@ -69,8 +69,24 @@ FBullCowCount FBullCowGame::SubmitValidGuess(FString Guess)
     return BullCowCount;
 };
 
+
 bool FBullCowGame::isIsogram(FString Word) const
 {
+    if (Word.length() <= 1) {
+        return true;
+    }
+
+    TMap<char, bool> LetterSeen;
+    for (auto Letter : Word) // Для всех букв слова
+    {
+        Letter = tolower(Letter);
+        if (LetterSeen [Letter]) {
+            return false; // Не должно быть двух одинаковых букв;
+        } else {
+            LetterSeen[Letter] = true;
+        }
+    }
+
     return true;
 }
 
