@@ -24,11 +24,11 @@ void FBullCowGame::Reset()
 
 EGuessStatus FBullCowGame::CheckGuessValidity(FString Guess) const
 {
-    if (!isIsogram(Guess))
+    if (!IsIsogram(Guess))
     {
         return EGuessStatus::Not_Isogram;
     }
-    else if (false)
+    else if (!IsLowercase(Guess))
     {
         return EGuessStatus::Not_Lowercase;
     }
@@ -70,7 +70,7 @@ FBullCowCount FBullCowGame::SubmitValidGuess(FString Guess)
 };
 
 
-bool FBullCowGame::isIsogram(FString Word) const
+bool FBullCowGame::IsIsogram(FString Word) const
 {
     if (Word.length() <= 1) {
         return true;
@@ -90,11 +90,15 @@ bool FBullCowGame::isIsogram(FString Word) const
     return true;
 }
 
+bool FBullCowGame::IsLowercase(FString Word) const
+{
+    for (auto Letter : Word)
+    {
+        if (!islower(Letter))
+        {
+            return false;
+        }
+    }
 
-
-
-
-
-
-
-
+    return true;
+}

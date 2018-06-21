@@ -31,11 +31,12 @@ public:
 
     void Reset();
     
-    FBullCowCount SubmitValidGuess(FString);
+    FBullCowCount SubmitValidGuess(FString Guess);
 
 private:
     // Init in constructor;
-    bool isIsogram(FString) const;
+    bool IsIsogram(FString Word) const;
+    bool IsLowercase(FString Word) const;
     bool bGameIsWon;
 
     int32 MyCurrentTry;
